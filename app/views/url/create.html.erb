@@ -1,1 +1,5 @@
-Congratulations! We created a new URL for you: <a href="http://localhost:3000/<%= @short_url %>">http://localhost:3000/<%= @short_url %></a>
+<% if @short_url %>
+  Congratulations! We created a new URL for you: <a href="http://localhost:3000/<%= @short_url %>">http://localhost:3000/<%= @short_url %></a>
+<% else %>
+  Error -- this does not look like a valid URL. Have a nice day!
+<% end %>

@@ -1,7 +1,7 @@
 class Url < ActiveRecord::Base
   self.table_name = "urls"
 
-  before_create :validate
+  before_save :validate
 
 
   def self.lookup(full_url)
@@ -21,7 +21,6 @@ class Url < ActiveRecord::Base
 
     url.full_url.starts_with?('http') ? url.full_url : "http://#{url.full_url}"
   end
-
 
   def validate
     raise Errors::InvalidUrl unless full_url.include?('.')
