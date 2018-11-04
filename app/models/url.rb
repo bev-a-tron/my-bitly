@@ -15,12 +15,11 @@ class Url < ActiveRecord::Base
   end
 
   def self.lookup_by_short_url(short_url)
-    url = Url.where(short_url: short_url)
+    url = Url.where(short_url: short_url).take
 
-    raise Errors::InvalidUrl if url.empty?
+    raise Errors::InvalidUrl if url.nil?
 
-    full_url = url.first.full_url
-    full_url.starts_with?('http') ? full_url : "http://#{full_url}"
+    url.full_url.starts_with?('http') ? url.full_url : "http://#{url.full_url}"
   end
 
 
