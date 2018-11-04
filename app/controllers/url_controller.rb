@@ -23,7 +23,7 @@ class UrlController < ApplicationController
 
     begin
       @full_url = Url.lookup_by_short_url(params[:short_url])
-      redirect_to @full_url
+      redirect_to @full_url, status: 302
     rescue Errors::InvalidUrl
       render status: 404
     end
