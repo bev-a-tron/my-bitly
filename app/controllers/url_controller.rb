@@ -1,6 +1,3 @@
-require 'digest'
-require 'base64'
-
 class UrlController < ApplicationController
 
   def new
