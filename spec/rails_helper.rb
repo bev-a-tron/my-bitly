@@ -38,14 +38,11 @@ RSpec.configure do |config|
 
   RSpec.configure do |config|
     config.include FactoryBot::Syntax::Methods
+    config.use_transactional_fixtures = true
   end
 
   config.before(:suite) do
     FactoryBot.find_definitions
-  end
-
-  RSpec.configure do |config|
-    config.use_transactional_fixtures = true
   end
 
   config.before(:example) do
